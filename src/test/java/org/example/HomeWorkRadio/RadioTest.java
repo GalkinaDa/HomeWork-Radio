@@ -212,17 +212,70 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldFindSelectStation() {
+    public void shouldFindLessMinSelectStation() {
         Radio radio = new Radio(15);
 
-        radio.setCurrentStation(12);
+        radio.setCurrentStation(-1);
 
-        int expected = 12;
+        int expected = 0;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldFindMinSelectStation() {
+        Radio radio = new Radio(15);
 
+        radio.setCurrentStation(0);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindMoreMinSelectStation() {
+        Radio radio = new Radio(15);
+
+        radio.setCurrentStation(1);
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindLessMaxSelectStation() {
+        Radio radio = new Radio(15);
+
+        radio.setCurrentStation(13);
+
+        int expected = 13;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindMaxSelectStation() {
+        Radio radio = new Radio(15);
+
+        radio.setCurrentStation(14);
+
+        int expected = 14;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindMoreMaxSelectStation() {
+        Radio radio = new Radio(15);
+
+        radio.setCurrentStation(15);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void shouldFindEquivalentVolume() {
