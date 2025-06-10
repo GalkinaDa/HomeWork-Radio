@@ -1,7 +1,11 @@
 package org.example.HomeWorkRadio;
 
-public class Radio {
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@AllArgsConstructor
+@Data
+class Radio {
     private int currentStation;
     private int currentVolume;
     private int maxStation;
@@ -20,7 +24,7 @@ public class Radio {
         this.currentStation = currentStation;
     }
 
-    public void next() {
+    void next() {
         if (currentStation != maxStation) {
             currentStation++;
         } else {
@@ -48,6 +52,7 @@ public class Radio {
         return currentVolume;
     }
 
+
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < 0) {
             return;
@@ -73,7 +78,5 @@ public class Radio {
             currentVolume = 0;
         }
     }
-
 }
-
 
